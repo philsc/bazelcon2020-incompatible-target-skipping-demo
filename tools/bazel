@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+readonly URL=http://philsc.net/Build-Dependencies/bazel-incompatible-target-skipping-bazelcon2020
+#readonly SHASUM=e04a46bbacc548375274476854f3ef2653ba31167ca21cbf2a1a9a9b86f8d35c
+
+readonly TEMPFILE=/tmp/bazel-incompatible-target-skipping-bazelcon2020
+
+if [[ ! -r "${TEMPFILE}" ]]; then
+    curl -L "${URL}" > "${TEMPFILE}"
+fi
+
+chmod +x "${TEMPFILE}"
+
+exec "${TEMPFILE}" "$@"
