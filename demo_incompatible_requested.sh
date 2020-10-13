@@ -5,4 +5,4 @@ set -o nounset
 set -o pipefail
 
 set -x
-bazel build --show_result=100 //:linux_only_script
+bazel build --show_result=100 //:windows_only_script
